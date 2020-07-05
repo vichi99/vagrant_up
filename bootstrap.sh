@@ -45,6 +45,7 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 #install and set python
 pyenv install 3.8.3
 pyenv global 3.8.3
+pip install --upgrade pip
 
 # set vagrant start up file
 echo "cd /vagrant" >> ~/.bashrc
