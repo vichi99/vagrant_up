@@ -21,6 +21,29 @@ Make sure you have installed [vagrant package.](https://www.vagrantup.com/docs/i
    - `ctrl + D` - logout
    - `vagrant halt`- turn off vagrant machine
 
+# Exclude Folder
+
+If you do not want synchronizate some folder etc. `node_modules` from your virtual machine you can create `symlink`. The main reason is to speed up starting node app.
+
+- Make sure you have this line in your `Vagrantfile` for enable Symlinks.
+  ```
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+  ```
+
+1. Delete the `node_modules` directory if it exists.
+2. Create a directory called, say "node_modules_projectname" in the VM's home directory `(~)` (Some articles and posts recommend making the directory in /tmp, but obviously this is cleared on reboot, so it may not be an optimal experience for this type of thing). Because is synchronizate only `/vagrant` path, not `/home/vagrant`.
+
+3. Link a local node_modules dir from within the project's directory
+   ```
+   ln -s ~/node_modules_projectname /path/to/your-project/node_modules
+   ```
+4. Install the packages in the project directory:
+   ```
+   npm install
+   ```
+
+### [Originall instructions exclude folder](http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/)
+
 # Source
 
 [https://www.vagrantup.com/](https://www.vagrantup.com/)
