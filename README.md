@@ -8,11 +8,13 @@ HashiCorp Vagrant provides the same, easy workflow regardless of your role as a 
 
 Make sure you have installed [vagrant package.](https://www.vagrantup.com/docs/installation)
 
+## First start
+
 1. Make file from example:
    - `cp Vagrantfile.example Vagrantfile && cp bootstrap.sh.example bootstrap.sh`
 2. Change name and ip in `Vagrantfile`. (You can change `bootstrap.sh` if you wish.)
 3. Start and connect:
-   - `vagrant start`
+   - `vagrant up`
    - `vagrant ssh` - connect to virtual machine
 4. Install your config file `bootstrap.sh`:
    - `cd /vagrant` - This is your main sync folder.
@@ -20,6 +22,11 @@ Make sure you have installed [vagrant package.](https://www.vagrantup.com/docs/i
 5. Logout and Turn off.
    - `ctrl + D` - logout
    - `vagrant halt`- turn off vagrant machine
+
+## Start
+
+- `vagrant up`
+- `vagrant ssh` - connect to virtual machine
 
 # Exclude Folder
 
