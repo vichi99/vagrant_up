@@ -47,6 +47,7 @@ If you do not want synchronizate some folder etc. `node_modules` from your virtu
 4. Install the packages in the project directory:
    ```
    npm install
+   npm install --save-dev react-dev-utils
    ```
 
 ### [Originall instructions exclude folder](http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/)
