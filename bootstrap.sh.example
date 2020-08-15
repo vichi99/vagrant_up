@@ -47,6 +47,10 @@ pyenv install 3.8.3
 pyenv global 3.8.3
 pip install --upgrade pip
 
+#install node.js by https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install nodejs
+
 # set vagrant start up file
 echo "cd /vagrant" >> ~/.bashrc
 . ~/.bashrc
