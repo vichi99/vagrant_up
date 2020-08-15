@@ -30,12 +30,17 @@ Make sure you have installed [vagrant package.](https://www.vagrantup.com/docs/i
 
 # Exclude Folder
 
-If you do not want synchronizate some folder etc. `node_modules` from your virtual machine you can create `symlink`. The main reason is to speed up starting node app.
+If you do not want synchronizate some folder from your virtual machine `/vagrant` you can create `symlink`. The main reason is would be to speed up some app.
 
 - Make sure you have this line in your `Vagrantfile` for enable Symlinks.
   ```
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   ```
+- Then use standard cmd like `ln -s /real_path /symlink_path`
+
+## Exclude node_modules
+
+Personally, I do not recommend creat react app in vagrant. I waste a lot of time by `npx create-react-app my-app; npm install` instead of coding app. You can use Docker. By the way here is first step to hell:
 
 1. Delete the `node_modules` directory if it exists.
 2. Create a directory called, say "node_modules_projectname" in the VM's home directory `(~)` (Some articles and posts recommend making the directory in /tmp, but obviously this is cleared on reboot, so it may not be an optimal experience for this type of thing). Because is synchronizate only `/vagrant` path, not `/home/vagrant`.
